@@ -1,14 +1,15 @@
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var typescript = require('typescript');
+var del = require('del');
+var runSequence = require('run-sequence');
 
-gulp.task('default', function() {
-	gulp.start('build-ts');
-	gulp.start('copy-build-and-src');
+gulp.task('default', function(callback){
+	runSequence(
+		'clean','ts', 'copy');
 });
 
-gulp.task('build-ts', [], function() {
-
+gulp.task('ts', function() {
 	var tsProject = ts.createProject('tsconfig.json', {
 	    typescript: typescript
 	});
@@ -18,7 +19,12 @@ gulp.task('build-ts', [], function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('copy-build-and-src', function(){
-	return gulp.src(['build/**/*.*', 'src/**/*.*'])
-	 	.pipe(gulp.dest('public'));
+gulp.task('copy', function(){
+	return gulp.src(['build/**/*.*', 'src/**/*.*'], {base: "."})
+	 	.pipe(gulp.dest('public/scripts'));
+});
+
+gulp.task('clean', function () {
+	del('build');
+	del('public/scripts');
 });
