@@ -4,12 +4,9 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outDir": "public/_build",
         "sourceMap": true,
-        "target": "ES5"
-    },
-    "files": [
-        "typings/angular2/angular2.d.ts",
-        "src/app.ts"   
-    ]
+        "target": "ES5",
+        "outDir": "_build"
+    }
+
 }
