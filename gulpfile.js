@@ -13,15 +13,9 @@ gulp.task('default', function() {
 });
 
 gulp.task('tsc', function(){
-	var tsProject = ts.createProject('tsconfig.json');
+	var tsProject = ts.createProject('tsconfig.json', {typescript: require('typescript')});
 
 	var tsResult = gulp.src(['typings/**.ts', 'src/**.ts'])
-		.pipe(ts(
-			{
-				typescript: require('typescript'),
-				'module': 'commonjs',
-				'target': 'es5'
-			}))
 		.pipe(ts(tsProject));
 		
 		
