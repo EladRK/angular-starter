@@ -1,26 +1,24 @@
 var gulp = require('gulp');
-
 var ts = require('gulp-typescript');
+var typescript = require('typescript');
 
-
-// JS hint task
 gulp.task('default', function() {
-	
-	gulp.start('tsc');
-//  gulp.src('./src/scripts/*.js')
-//    .pipe(jshint())
-//    .pipe(jshint.reporter('default'));
+	gulp.start('build-ts');
+	gulp.start('copy-build-and-src');
 });
 
-gulp.task('tsc', function(){
-	var tsProject = ts.createProject('tsconfig.json', {typescript: require('typescript')});
+gulp.task('build-ts', [], function() {
 
-	var tsResult = gulp.src(['typings/**.ts', 'src/**.ts'])
-		.pipe(ts(tsProject));
-		
-		
+	var tsProject = ts.createProject('tsconfig.json', {
+	    typescript: typescript
+	});
+	
+	return gulp.src(['typings/**/**.ts', 'src/**/**.ts'])
+        .pipe(ts(tsProject))
+        .pipe(gulp.dest('build'));
+});
 
-	return tsResult;
-//	var tsResult = tsProject.src() // instead of gulp.src(...) 
-//        .pipe(ts(tsProject));
+gulp.task('copy-build-and-src', function(){
+	return gulp.src(['build/**/*.*', 'src/**/*.*'])
+	 	.pipe(gulp.dest('public'));
 });

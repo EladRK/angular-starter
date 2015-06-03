@@ -22,4 +22,3 @@ var MyAppComponent = (function () {
     return MyAppComponent;
 })();
 exports.MyAppComponent = MyAppComponent;
-//# sourceMappingURL=app.js.map
