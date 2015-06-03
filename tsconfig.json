@@ -4,9 +4,13 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "out": "public/app.js",
+        "out": "public/all.js",
         "sourceMap": true,
         "watch": true,
         "target": "ES5"
-    }
+    },
+    "files": [
+        "typings/angular2/angular2.d.ts",
+        "src/app.ts"   
+    ]
 }

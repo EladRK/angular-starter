@@ -1,6 +1,18 @@
 import {Component, View, bootstrap} from 'angular2/angular2';
 
 
+
+// class SomeClass
+// {
+//   name: string;
+//   constructor()
+//   {
+//     this.name = 'some name';
+//     
+//   }
+// } 
+
+
 @Component({
   selector: 'my-app'
 })
@@ -16,4 +28,4 @@ class MyAppComponent {
   }
 }    
 
-bootstrap(MyAppComponent); 
+bootstrap(MyAppComponent);  
