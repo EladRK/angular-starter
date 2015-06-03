@@ -1,12 +1,14 @@
 {
   "name": "angular-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "angular 2 quick start",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && npm run server",
-    "server": "http-server -p 8888 -c-1 -d false" 
+    "ts": "tsc",
+    "copySrc": "xcopy src\\*.ts public\\_build\\ /Y",
+    "start": "npm install && npm run startServer",
+    "startServer": "http-server -p 8888 -c-1 -d false"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/EladRK/angular-starter/issues"
   },
-  "homepage": "https://github.com/EladRK/angular-starter"
+  "homepage": "https://github.com/EladRK/angular-starter",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
 }

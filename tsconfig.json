@@ -4,9 +4,8 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "out": "public/all.js",
+        "outDir": "public/_build",
         "sourceMap": true,
-        "watch": true,
         "target": "ES5"
     },
     "files": [
