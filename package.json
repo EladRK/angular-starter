@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ts": "tsc",
-    "copySrc": "xcopy src\\*.* public\\src\\ /Y /e && xcopy _build\\*.* public\\_build\\ /Y /e",
-    "copyBootstrap": "xcopy node_modules\\bootstrap\\dist\\*.0 public\\css\\bootstrap\\ /Y /e",
-    "start": "npm install && npm run ts && npm run copySrc && npm run startServer",
+    "start": "npm install && gulp && npm run startServer",
     "startServer": "http-server -p 8888 -c-1 -d false"
   },
   "repository": {
