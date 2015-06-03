@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts": "tsc",
     "copySrc": "xcopy src\\*.* public\\src\\ /Y /e && xcopy _build\\*.* public\\_build\\ /Y /e",
-    "start": "npm install && npm run startServer",
+    "copyBootstrap": "xcopy node_modules\\bootstrap\\dist\\*.0 public\\css\\bootstrap\\ /Y /e",
+    "start": "npm install && npm run ts && npm run copySrc && npm run startServer",
     "startServer": "http-server -p 8888 -c-1 -d false"
   },
   "repository": {
@@ -19,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/EladRK/angular-starter/issues"
   },
-  "homepage": "https://github.com/EladRK/angular-starter"
+  "homepage": "https://github.com/EladRK/angular-starter",
+  "dependencies": {
+    "bootstrap": "^3.3.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.7.6",
+    "typescript": "^1.5.0-beta"
+  }
 }
