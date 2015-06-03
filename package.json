@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && gulp && npm run startServer",
-    "startServer": "http-server -p 8888 -c-1 -d false"
+    "start": "npm install && npm run build && npm run server",
+    "build": "gulp",
+    "server": "http-server -p 8888 -c-1 -d false"
   },
   "repository": {
     "type": "git",
