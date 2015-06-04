@@ -13,5 +13,8 @@ test.js
 docs/*.html
 docs/*.json
 node_modules
+public/scripts/**
+build
+build/**
 .idea
 *.iml
