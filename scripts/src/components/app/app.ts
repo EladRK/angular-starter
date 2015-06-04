@@ -1,14 +1,16 @@
 import {Component, View} from 'angular2/angular2';
 import { _settings } from '../../settings'
+import {Sidebar} from '../sidebar/sidebar'
 
 @Component({ 
   selector: 'my-app'
 })
 @View({
-  templateUrl: _settings.buildPath + '/components/app/app.html'
+  templateUrl: _settings.buildPath + '/components/app/app.html',
+  directives: [Sidebar]
 })
 // Component controller
-export class MyAppComponent {
+export class MyApp {
   name: string;
   
   constructor() {
