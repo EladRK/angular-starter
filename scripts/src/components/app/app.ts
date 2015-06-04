@@ -1,11 +1,11 @@
 import {Component, View} from 'angular2/angular2';
-
+import { _settings } from '../../settings'
 
 @Component({ 
   selector: 'my-app'
 })
 @View({
-  template: '<h1>Hello {{ name }}</h1>'
+  templateUrl: _settings.buildPath + '/components/app/app.html'
 })
 // Component controller
 export class MyAppComponent {

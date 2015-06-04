@@ -6,7 +6,7 @@ var runSequence = require('run-sequence');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('default', function (callback) {
-	runSequence('clean', 'ts', 'copy');
+	runSequence('clean', 'ts', 'html', 'copy');
 });
 
 gulp.task('ts', function () {
@@ -18,6 +18,11 @@ gulp.task('ts', function () {
 		.pipe(sourcemaps.init())
         .pipe(ts(tsProject))
 		.pipe(sourcemaps.write('../maps', {includeContent: false, sourceRoot: '/scripts/src'}))
+        .pipe(gulp.dest('scripts/build'));
+});
+
+gulp.task('html', function () {
+	return gulp.src(['scripts/src/**/**.html'])
         .pipe(gulp.dest('scripts/build'));
 });
 
