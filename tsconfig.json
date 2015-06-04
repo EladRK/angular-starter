@@ -4,7 +4,6 @@
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
-        "target": "ES5",
-        "outDir": "_build"
+        "target": "ES5"
     }
 }

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm install && npm run build && npm run server",
     "build": "gulp",
-    "server": "http-server -p 8888 -c-1 -d false"
+    "server": "http-server -p 8888 -c-1 -d false -o"
   },
   "repository": {
     "type": "git",

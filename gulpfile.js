@@ -14,18 +14,18 @@ gulp.task('ts', function () {
 		typescript: typescript
 	});
 
-	return gulp.src(['typings/**/**.ts', 'src/**/**.ts'])
+	return gulp.src(['typings/**/**.ts', 'scripts/src/**/**.ts'])
 		.pipe(sourcemaps.init())
         .pipe(ts(tsProject))
 		.pipe(sourcemaps.write('../maps', {includeContent: false, sourceRoot: '/scripts/src'}))
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('scripts/build'));
 });
 
 gulp.task('copy', function () {
-	return gulp.src(['build/**/*.*', 'src/**/*.*', 'maps/**/*.*'], { base: "." })
-		.pipe(gulp.dest('public/scripts'));
+	return gulp.src(['scripts/**/*.*'], { base: "." })
+		.pipe(gulp.dest('public'));
 });
 
 gulp.task('clean', function () {
-	del(['build', 'maps','public/scripts']);
+	del(['scripts/build', 'scripts/maps','public/scripts']);
 });
