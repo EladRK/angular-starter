@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && npm run build && npm run server",
-    "build": "gulp",
-    "server": "http-server -p 8888 -c-1 -d false -o"
+    "start": "npm install && npm run build",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,7 @@
   "devDependencies": {
     "del": "^1.2.0",
     "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-typescript": "^2.7.6",
     "run-sequence": "^1.1.0",
