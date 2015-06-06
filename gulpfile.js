@@ -5,9 +5,16 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var sourcemaps = require('gulp-sourcemaps');
 var connect = require('gulp-connect');
+var open = require('gulp-open');
+
+var serverOptions = {
+	root: 'public',
+	port: 8000,
+	livereload: true
+};
 
 gulp.task('default', function () {
-	runSequence('clean-all', 'ts', 'html', 'copy', 'clean-src', 'webserver', 'watch');
+	runSequence('clean-all', 'ts', 'html', 'copy', 'clean-src', 'webserver', 'open', 'watch');
 });
 
 // default task starts watcher. in order not to start it each change
@@ -70,9 +77,10 @@ gulp.task('watch', function () {
 
 // starts web server
 gulp.task('webserver', function () {
-	connect.server({
-		root: 'public',
-		port: 8000,
-		livereload: true
-	});
+	connect.server(serverOptions);
+});
+
+gulp.task('open', function () {
+	gulp.src('public/index.html')
+  		.pipe(open('', { url: 'http://localhost:' + serverOptions.port }));
 });
