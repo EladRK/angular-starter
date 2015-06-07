@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && npm run build",
-    "build": "gulp"
+    "start": "npm install && gulp"
   },
   "repository": {
     "type": "git",

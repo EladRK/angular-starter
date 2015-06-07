@@ -1,6 +1,6 @@
 // Angular2
 import {bootstrap} from 'angular2/angular2';
-// Angular2 Router
+// Angular2 Router Injectables https://github.com/angular/angular/blob/f999d5a1566d3b830fd1a23ed554cbed4e1215e8/modules/angular2/router.ts
 import {routerInjectables} from 'angular2/router';
 
 import {MyApp} from './components/app/app';

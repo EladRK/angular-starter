@@ -13,13 +13,15 @@ var serverOptions = {
 	livereload: true
 };
 
+
+
 gulp.task('default', function () {
 	runSequence('clean-all', 'ts', 'html', 'copy', 'clean-src', 'webserver', 'open', 'watch');
 });
 
 // default task starts watcher. in order not to start it each change
 // watcher will run the task bellow
-gulp.task('watcher-build', function (callback) {
+gulp.task('watcher-rebuild', function (callback) {
 	runSequence('clean-public', 'ts', 'html', 'copy', 'clean-src');
 	callback();
 });
@@ -72,7 +74,7 @@ gulp.task('clean-src', function () {
 
 // watcher
 gulp.task('watch', function () {
-	gulp.watch(['scripts/src/**/**.ts', 'scripts/src/**/**.html'], ['watcher-build']);
+	gulp.watch(['scripts/src/**/**.ts', 'scripts/src/**/**.html'], ['watcher-rebuild']);
 });
 
 // starts web server
