@@ -24,5 +24,3 @@ All you need to run this starter is [node.js](https://nodejs.org/) installed.
 
 - <https://twitter.com/kuzmich_dima>
 - <https://github.com/forforeach>
-	
-> Don't hesitate to contact us for any question and don't forget to follow us on Twitter :-)
