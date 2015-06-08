@@ -10,8 +10,9 @@ var open = require('gulp-open');
 var serverOptions = {
 	root: 'public',
 	port: 8000,
-	livereload: true
+	livereload: true,
 };
+
 
 var tasks = {
 	'default': 'default',
