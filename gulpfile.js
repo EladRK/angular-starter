@@ -13,21 +13,46 @@ var serverOptions = {
 	livereload: true
 };
 
+var tasks = {
+	'default': 'default',
+	cleanAll : 'Clean-All',
+	typeScript: 'TypeScript-Compile',
+	html: 'Copy-HTML',
+	copy: 'Copy-Compiled-JS',
+	cleanSrc: 'Clean-Source',
+	cleanPublic: 'Clean-Public',
+	startWebServer: 'Start-WebServer',
+	openBrowser: 'Open-Browser',
+	watch: 'Watch',
+	watcherRebuild: 'Watcher-Rebuild'
+};
 
-
-gulp.task('default', function () {
-	runSequence('clean-all', 'ts', 'html', 'copy', 'clean-src', 'webserver', 'open', 'watch');
+// Main task 
+gulp.task(tasks.default, function () {
+	runSequence(tasks.cleanAll,
+		tasks.typeScript,
+		tasks.html,
+		tasks.copy,
+		tasks.cleanSrc,
+		tasks.startWebServer,
+		tasks.openBrowser,
+		tasks.watch);
 });
 
 // default task starts watcher. in order not to start it each change
 // watcher will run the task bellow
-gulp.task('watcher-rebuild', function (callback) {
-	runSequence('clean-public', 'ts', 'html', 'copy', 'clean-src');
+gulp.task(tasks.watcherRebuild, function (callback) {
+	runSequence(
+		tasks.cleanPublic, 
+		tasks.typeScript,
+		tasks.html,
+		tasks.copy,
+		tasks.cleanSrc);
 	callback();
 });
 
 // compiles *.ts files by tsconfig.json file and creates sourcemap filse
-gulp.task('ts', function () {
+gulp.task(tasks.typeScript, function () {
 	var tsProject = ts.createProject('tsconfig.json', {
 		typescript: typescript
 	});
@@ -41,14 +66,14 @@ gulp.task('ts', function () {
 
 // copy *.html files (templates of components)
 // to apropriate directory under public/scripts
-gulp.task('html', function () {
+gulp.task(tasks.html, function () {
 	return gulp.src(['scripts/src/**/**.html'])
         .pipe(gulp.dest('scripts/build'));
 });
 
 // copy generated/compiled files 
 // from scripts/ directory to public/scripts directory
-gulp.task('copy', function () {
+gulp.task(tasks.copy, function () {
 	return gulp.src(['scripts/**/*.*'], { base: "." })
 		.pipe(gulp.dest('public'))
 		.pipe(connect.reload());
@@ -56,33 +81,33 @@ gulp.task('copy', function () {
 
 //  clean all generated/compiled files 
 //	in both scripts/ and public/scripts/ directories
-gulp.task('clean-all', function () {
-	return runSequence('clean-src', 'clean-public');
+gulp.task(tasks.cleanAll, function () {
+	return runSequence(tasks.cleanSrc, tasks.cleanPublic);
 });
 
 //  clean all generated/compiled files 
 //	only in public/scripts/ directory
-gulp.task('clean-public', function () {
+gulp.task(tasks.cleanPublic, function () {
 	return del(['public/scripts']);
 });
 
 //  clean all generated/compiled files 
 //	only in both scripts/ directory
-gulp.task('clean-src', function () {
+gulp.task(tasks.cleanSrc, function () {
 	return del(['scripts/build', 'scripts/maps']);
 });
 
 // watcher
-gulp.task('watch', function () {
-	gulp.watch(['scripts/src/**/**.ts', 'scripts/src/**/**.html'], ['watcher-rebuild']);
+gulp.task(tasks.watch, function () {
+	gulp.watch(['scripts/src/**/**.ts', 'scripts/src/**/**.html'], [tasks.watcherRebuild]);
 });
 
 // starts web server
-gulp.task('webserver', function () {
+gulp.task(tasks.startWebServer, function () {
 	connect.server(serverOptions);
 });
 
-gulp.task('open', function () {
+gulp.task(tasks.openBrowser, function () {
 	gulp.src('public/index.html')
   		.pipe(open('', { url: 'http://localhost:' + serverOptions.port }));
 });
