@@ -1,10 +1,78 @@
 // Until we have angular2 official full TypeScript definitions
+interface List<T> extends Array<T> {}
 declare var require: any;
 declare var __filename: string;
 declare var __dirname: string;
 declare var global: any;
 declare var zone: any;
 declare var Zone: any;
+
+interface IRequestOptions{}
+interface IRequest{}
+interface IResponse{}
+declare class Query{}
+declare class RecordType{}
+declare class TypeDecorator{}
+declare class URLSearchParams{}
+declare class ConnectionBackend{}
+declare class Connection{}
+declare class ReadyStates{}
+declare class RequestMethods{}
+declare class RequestModesOpts{}
+declare class RequestCredentialsOpts{}
+declare class RequestCacheOpts{}
+declare class ResponseTypes{}
+
+interface WeakMap<K, V> {
+    clear(): void;
+    delete(key: K): boolean;
+    get(key: K): V;
+    has(key: K): boolean;
+    set(key: K, value?: V): WeakMap<K, V>;
+    [Symbol.toStringTag]: string;
+}
+
+interface WeakMapConstructor {
+    new <K, V>(): WeakMap<K, V>;
+    new <K, V>(iterable: Iterable<[K, V]>): WeakMap<K, V>;
+    prototype: WeakMap<any, any>;
+}
+declare var WeakMap: WeakMapConstructor;
+
+interface Iterable<T> {
+    [Symbol.iterator](): Iterator<T>;
+}
+
+interface IteratorResult<T> {
+    done: boolean;
+    value?: T;
+}
+
+interface Iterator<T> {
+    next(): IteratorResult<T>;
+    return?(value?: any): IteratorResult<T>;
+    throw?(e?: any): IteratorResult<T>;
+}
+
+interface Symbol {
+    toString(): string;
+    valueOf(): Object;
+    [Symbol.toStringTag]: string;
+}
+
+interface SymbolConstructor {
+    prototype: Symbol;
+    (description?: string|number): symbol;
+    for(key: string): symbol;
+    keyFor(sym: symbol): string;
+    hasInstance: symbol;
+    isConcatSpreadable: symbol;
+    iterator: symbol;
+    toPrimitive: symbol;
+    toStringTag: symbol;
+    unscopables: symbol;
+}
+declare var Symbol: SymbolConstructor;
 
 declare module 'angular2/src/services/url_resolver' {
   class UrlResolver {}
@@ -45,26 +113,6 @@ declare module "angular2/directives" {
   var formDirectives: any;
   var coreDirectives: any;
 
-}
-
-declare module "angular2/forms" {
-  var formDirectives: any;
-  class FormBuilder {
-    group(controls: any): any;
-  }
-  class Control {
-    constructor(controls: any)
-    updateValue(value: any)
-  }
-  class ControlArray {
-    removeAt(index: any)
-    push(item: any)
-  }
-  class ControlGroup {
-    constructor(controls: any)
-    controls: any;
-    valueChanges: any;
-  }
 }
 
 declare module "angular2/core" {
@@ -220,126 +268,25 @@ declare module "angular2/src/dom/browser_adapter" {
 declare module "angular2/angular2" {
   function bootstrap(appComponentType: any, componentInjectableBindings?: Array<any>, errorReporter?: Function): Promise<ComponentRef>;
 
-  class ElementRef {
-    domElement: any;
-  }
-
-  function NgSwitch(): void;
-  function NgSwitchWhen(): void;
-  function NgSwitchDefault(): void;
-  function NgNonBindable(): void;
-  function NgIf(): void;
-  function NgFor(): void;
-
-  var formDirectives: any;
-  var coreDirectives: any;
-
-  var Observable: any;
-  var EventEmitter: any;
-  var DomRenderer: any;
-  var DOCUMENT_TOKEN: any;
-  var ASTWithSource: any;
-  var AST: any;
-  var AstTransformer: any;
-  var AccessMember: any;
-  var LiteralArray: any;
-  var ImplicitReceiver: any;
-  var Lexer: any;
-  var Parser: any;
-  var Locals: any;
-  var ExpressionChangedAfterItHasBeenChecked: any;
-  var ChangeDetectionError: any;
-  var ProtoChangeDetector: any;
-  var ChangeDispatcher: any;
-  var ChangeDetector: any;
-  var ChangeDetection: any;
-  var CHECK_ONCE: any;
-  var CHECK_ALWAYS: any;
-  var DETACHED: any;
-  var CHECKED: any;
-  var ON_PUSH: any;
-  var DEFAULT: any;
-  var DynamicProtoChangeDetector: any;
+  
   var JitProtoChangeDetector: any;
-  var BindingRecord: any;
-  var DirectiveIndex: any;
-  var DirectiveRecord: any;
-  var DynamicChangeDetector: any;
-  var ChangeDetectorRef: any;
-  var PipeRegistry: any;
   var uninitialized: any;
-  var WrappedValue: any;
-  var Pipe: any;
-  var NullPipe: any;
-  var NullPipeFactory: any;
   var defaultPipes: any;
-  var DynamicChangeDetection: any;
-  var JitChangeDetection: any;
-  var defaultPipeRegistry: any;
   var ___esModule: any;
-  var ViewRef: any;
-  var ProtoViewRef: any;
-  class ViewContainerRef {}
-  var AncestorAnnotation: any;
-  var ParentAnnotation: any;
   interface OnChange {}
-  var ViewAnnotation: any;
-  interface ApplicationRef {}
-  var appComponentRefToken: any;
   var appComponentAnnotatedTypeToken: any;
-  var QueryAnnotation: any;
-  var AttributeAnnotation: any;
-  interface QueryList {}
-  interface CompilerCache {}
-  interface Compiler {}
   interface TemplateLoader {}
   interface ShadowDomStrategy {}
   interface NativeShadowDomStrategy {}
   interface EmulatedScopedShadowDomStrategy {}
   interface EmulatedUnscopedShadowDomStrategy {}
-  interface ComponentRef {
-     instance: any;
-     dispose(): void;
-  }
-  class DynamicComponentLoader {
-     loadIntoNewLocation(type: any, b: any, c: any, d?: any): Promise<ComponentRef>;
-     loadNextToExistingLocation(a: any, b: any, c: any): Promise<ComponentRef>;
-  }
-  var ComponentAnnotation: any;
-  var DirectiveAnnotation: any;
-  var onDestroy: any;
-  var onChange: any;
-  var onAllChangesDone: any;
-  var Directive: any;
   var Ancestor: any;
   var Parent: any;
   var Attribute: any;
   var Query: any;
-  var coreDirectives: any;
-  interface CSSClass {}
-  var VALID: any;
-  var INVALID: any;
-  interface Control {}
-  interface ControlGroup {}
-  interface ControlArray {}
-  interface DefaultValueAccessor {}
-  interface CheckboxControlValueAccessor {}
   interface ControlDirective {}
   interface ControlGroupDirective {}
-  var formDirectives: any;
-  interface Validators {}
   interface RequiredValidatorDirective {}
-  interface FormBuilder {}
-  interface EventBinding {}
-  interface ElementBinder {}
-  interface DirectiveBinder {}
-  interface ProtoViewDto {}
-  interface DirectiveMetadata {}
-  interface RenderProtoViewRef {}
-  interface RenderViewRef {}
-  interface ViewDefinition {}
-  interface RenderCompiler {}
-  interface Renderer {}
   interface EventDispatcher {}
 }
 
@@ -375,4 +322,110 @@ declare module "angular2/di" {
   var InjectLazy: any;
   var Optional: any;
   var Injectable: any;
+}
+
+ declare module "angular2/http" {
+  export interface IHttp { (url: string, options?: IRequestOptions): any }
+  export interface ConnectionBackend {
+    createConnection(observer: any, config: IRequest): Connection;
+  }
+ 
+  export class ReadyStates{}
+  
+  export interface Connection {
+    readyState: ReadyStates;
+    request: IRequest;
+    response: Rx.Subject<IResponse>;
+    dispose(): void;
+  }
+   
+  export class Headers {
+    _headersMap: Map<string, List<string>>;
+    append(name: string, value: string): void;
+    delete (name: string): void;
+    forEach(fn: Function);
+    get(header: string): string;
+    has(header: string);
+    keys();
+    set(header: string, value: string | List<string>): void;
+    values();
+    getAll(header: string): Array<string>;
+    entries();
+  }
+   
+  export interface IRequestOptions {
+    method?: any;
+    headers?: Headers;
+    body?: FormData | Blob | string;
+    mode?: any;
+    credentials?: any;
+    cache?: any;
+  }
+   
+  export interface IRequest {
+    method: any;
+    mode: any;
+    credentials: any;
+  }
+   
+  export interface ResponseOptions {
+    status?: number;
+    statusText?: string;
+    headers?: Headers | Object;
+    type?: any;
+    url?: string;
+  }
+   
+  export interface IResponse {
+    headers: Headers;
+    ok: boolean;
+    status: number;
+    statusText: string;
+    type: any;
+    url: string;
+    totalBytes: number;
+    bytesLoaded: number;
+    blob(): Blob;
+    arrayBuffer(): ArrayBuffer;
+    text(): string;
+    json(): Object;
+  }
+ 
+  export class Http {
+    request(url: string | Request, options?: IRequestOptions): Rx.Observable<Response>;
+    get(url: string, options?: IRequestOptions);
+    post(url: string, body: FormData | Blob | string, options?: IRequestOptions);
+    put(url: string, body: FormData | Blob | string, options?: IRequestOptions);
+    delete(url: string, options?: IRequestOptions);
+    patch(url: string, body: FormData | Blob | string, options?: IRequestOptions);
+    head(url: string, options?: IRequestOptions);
+  }
+
+  export class Request implements  IRequest {
+    method: RequestMethods;
+    mode: RequestModesOpts;
+    credentials: RequestCredentialsOpts;
+    headers: Headers;
+    url: string;
+    text(): String;
+  }
+
+  export class Response implements  IResponse {
+    type: ResponseTypes;
+    ok: boolean;
+    url: string;
+    status: number;
+    statusText: string;
+    bytesLoaded: number;
+    totalBytes: number;
+    headers: Headers;
+    blob(): Blob;
+    json(): JSON;
+    text(): string;
+    arrayBuffer(): ArrayBuffer;
+  }
+  
+  class ResponseTypes{}
+  
+  export class httpInjectables{}
 }
