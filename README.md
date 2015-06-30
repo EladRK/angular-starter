@@ -11,7 +11,10 @@ A starter template for Angular2 applications.
 
 ## Dependencies
 
-All you need to run this starter is [node.js](https://nodejs.org/) installed.
+All you need to run this starter is [node.js](https://nodejs.org/) installed. And you should also have following NPM packages installed globally:
+
+  - gulp (npm install -g gulp)
+  - tsd (npm install -g tsd)
 
 ## Creators
 
@@ -24,3 +27,8 @@ All you need to run this starter is [node.js](https://nodejs.org/) installed.
 
 - <https://twitter.com/kuzmich_dima>
 - <https://github.com/forforeach>
+  
+**Ravi Kiran**
+
+- <https://twitter.com/sravi_kiran>
+- <https://github.com/sravikiran>
