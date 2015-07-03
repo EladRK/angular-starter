@@ -1,4 +1,5 @@
 node_modules
+typings
 scripts/build
 scripts/maps
 public/scripts/
