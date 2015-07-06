@@ -6,7 +6,7 @@ import { Http, httpInjectables} from 'angular2/http';
 
 var dummyServiceMap = new WeakMap<Sidebar, DummyService>();
 
-@Component({ 
+@Component({
   selector: 'sidebar',
   injectables: [DummyService, Http]
 })
@@ -28,11 +28,11 @@ export class Sidebar {
     
     dummyServiceMap.set(this, dummyService);
     
-    this.getAchievements('notable');
+    this.getAchievements('major');
     
     setTimeout(() => {
       this.value = dummyService.getServerData().name;
-      this.getAchievements('moderate');
+      this.getAchievements('medium');
     }, 1000);
     
     setTimeout(() => {
@@ -44,9 +44,13 @@ export class Sidebar {
     dummyServiceMap.get(this).getAchievements(type)
                    .map(r => r.json())
                    .subscribe(a => {
-                      this.achievements = a;
+                      if(!this.achievements || this.achievements.length === 0){
+                        this.achievements = a;
+                      }
+                      else{
+                        this.achievements.push(...a);
+                      }
                     });
   }
 }    
-
  

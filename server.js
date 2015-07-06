@@ -21,20 +21,24 @@ app.get('/api/sample', function(request, response){
 app.get('/api/achievements/:type', function(request, response) {
     var achievements=[
         {
+            title:'Received Microsoft MVP Award',
+            type:'major'
+        },
+        {
             title:'Approved as SitePoint author',
-            type:'notable'
+            type:'major'
         },
         {
             title:'Approved as DotnetCurry author',
-            type:'notable'
+            type:'major'
         },
         {
             title:'Mention on ASP.NET',
-            type:'moderate'
+            type:'medium'
         },
         {
             title:'First article published on SitePoint',
-            type:'moderate'
+            type:'minor'
         },
         {
             title:'Got a side project',
