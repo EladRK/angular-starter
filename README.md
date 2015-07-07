@@ -28,10 +28,3 @@ All you need to run this starter is [node.js](https://nodejs.org/) installed. An
 
 - <https://twitter.com/kuzmich_dima>
 - <https://github.com/forforeach>
-
-## Forked and Modified by
-  
-**Ravi Kiran**
-
-- <https://twitter.com/sravi_kiran>
-- <https://github.com/sravikiran>
