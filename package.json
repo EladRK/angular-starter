@@ -21,13 +21,18 @@
     "bootstrap": "^3.3.4"
   },
   "devDependencies": {
+    "body-parser": "^1.10.1",
+    "connect-livereload": "^0.5.3",
     "del": "^1.2.0",
+    "express": "^4.10.6",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.2.0",
+    "gulp-express": "^0.1.4",
     "gulp-open": "^0.3.2",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-typescript": "^2.7.6",
     "run-sequence": "^1.1.0",
-    "typescript": "^1.5.0-beta"
+    "typescript": "^1.5.0-beta",
+    "underscore": "^1.8.3"
   }
 }

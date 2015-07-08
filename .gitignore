@@ -1,5 +1,7 @@
 node_modules
+typings
 scripts/build
 scripts/maps
 public/scripts/
+public/jspm_packages/
 *.log

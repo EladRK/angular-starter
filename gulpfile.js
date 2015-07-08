@@ -6,13 +6,13 @@ var runSequence = require('run-sequence');
 var sourcemaps = require('gulp-sourcemaps');
 var connect = require('gulp-connect');
 var open = require('gulp-open');
+var express = require('gulp-express');
 
 var serverOptions = {
 	root: 'public',
 	port: 8000,
 	livereload: true,
 };
-
 
 var tasks = {
 	'default': 'default',
@@ -36,7 +36,7 @@ gulp.task(tasks.default, function () {
 		tasks.copy,
 		tasks.cleanSrc,
 		tasks.startWebServer,
-		tasks.openBrowser,
+		//tasks.openBrowser,
 		tasks.watch);
 });
 
@@ -105,7 +105,10 @@ gulp.task(tasks.watch, function () {
 
 // starts web server
 gulp.task(tasks.startWebServer, function () {
-	connect.server(serverOptions);
+	//connect.server(serverOptions);
+	return express.run([
+        'server.js'
+    ]);
 });
 
 gulp.task(tasks.openBrowser, function () {
